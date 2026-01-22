@@ -1,0 +1,72 @@
+@import './typography.css';
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --sidebar-bg: #ffffff;
+  --text-strong: #1f2435;
+  --text-muted: #8a8fa7;
+  --accent: #5f6df8;
+  --accent-soft: #eef0ff;
+  --nav-hover: #f3f4f9;
+  --card-bg: #171c2e;
+  --card-highlight: #2b324f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.border-none {
+  border-style: none;
+}
+
+.shadow-none {
+  box-shadow: none;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

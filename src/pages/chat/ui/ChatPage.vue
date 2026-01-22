@@ -10,7 +10,6 @@ import { useChatsStore } from '@/stores/chats'
 
 const route = useRoute()
 const chatsStore = useChatsStore()
-const storageKey = 'task-management:chats'
 
 const handleSend = (text: string) => {
   const messageText = text.trim()
@@ -18,11 +17,11 @@ const handleSend = (text: string) => {
     return
   }
 
-  const chat = activeChat.value
-  if (!chat) {
+  const chatId = Number(route.params.id)
+  if (!Number.isFinite(chatId)) {
     return
   }
-  chatsStore.changee(activeChat.value.id, messageText)
+  chatsStore.sendMsg(chatId, messageText)
 }
 
 const activeChat = computed(() => {

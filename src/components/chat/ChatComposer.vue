@@ -24,12 +24,13 @@ const submitMessage = () => {
 <template>
   <div class="composer">
     <InputText
+      size="large"
       v-model="draft"
       placeholder="Send your message..."
       class="w-full border-none shadow-none"
       @keyup.enter="submitMessage"
     />
-    <div class="d-flex gap-20">
+    <div class="d-flex-center gap-20">
       <Button
         type="button"
         text

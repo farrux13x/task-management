@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import DetailTask from '@components/DetailTask.vue'
 import AssignedAssignments from '@components/AssignedAssignments.vue'
-import TaskSearchBar from '@components/TaskSearchBar.vue'
 import { useTasksStore } from '@/stores/tasks'
 
 const route = useRoute()
@@ -20,10 +19,6 @@ const selectedTask = computed(() => {
 
 <template>
   <section class="task-page">
-    <div class="task-header">
-      <h2 class="message-title">Detail Task</h2>
-      <TaskSearchBar />
-    </div>
     <div class="task-container">
       <DetailTask :task="selectedTask" />
       <AssignedAssignments :task="selectedTask" />

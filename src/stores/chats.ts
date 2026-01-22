@@ -22,6 +22,8 @@ export type Message = {
   caption?: string
 }
 
+const storageKey = 'task-management:chats'
+
 const mockChats: ChatItem[] = [
   {
     id: 1,
@@ -278,14 +280,30 @@ const mockChats: ChatItem[] = [
   },
 ]
 
+const loadStoredChats = () => {
+  try {
+    const raw = localStorage.getItem(storageKey)
+    if (!raw) {
+      return null
+    }
+    const parsed = JSON.parse(raw) as ChatItem[]
+    if (!Array.isArray(parsed)) {
+      return null
+    }
+    return parsed
+  } catch {
+    return null
+  }
+}
+
 export const useChatsStore = defineStore('chats', {
   state: () => ({
-    chats: [...mockChats],
+    chats: loadStoredChats() ?? [...mockChats],
   }),
   actions: {
-    changee(id: number, message: string) {
-      this.chats.map(chat => {
-        if(chat.id == id) {
+    sendMsg(id: number, message: string) {
+      this.chats.forEach((chat) => {
+        if (chat.id === id) {
           const time = new Date().toLocaleTimeString([], {
             hour: '2-digit',
             minute: '2-digit',
@@ -302,6 +320,7 @@ export const useChatsStore = defineStore('chats', {
           })
         }
       })
+      localStorage.setItem(storageKey, JSON.stringify(this.chats))
     }
   }
 })

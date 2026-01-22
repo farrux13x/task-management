@@ -43,6 +43,7 @@ export function useMentorsPage() {
     if (!event) {
       return
     }
+    //@ts-expect-error
     target?.navForward(event)
   }
 
@@ -50,6 +51,7 @@ export function useMentorsPage() {
     if (!event) {
       return
     }
+    //@ts-expect-error
     target?.navBackward(event)
   }
 

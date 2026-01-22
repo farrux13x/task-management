@@ -7,7 +7,7 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', value: string): void
+  (event: 'update:modelValue', value: string | undefined): void
 }>()
 </script>
 

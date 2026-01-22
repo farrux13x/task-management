@@ -4,13 +4,6 @@
   import CategoryGridIcon from './icons/CategoryGridIcon.vue'
   import SortLinesIcon from './icons/SortLinesIcon.vue'
   
-  defineProps<{
-    modelValue: string
-  }>()
-  
-  const emit = defineEmits<{
-    (event: 'update:modelValue', value: string): void
-  }>()
   </script>
   
   <template>
@@ -20,8 +13,6 @@
           type="text"
           placeholder="Search Mentors"
           aria-label="Search Mentors"
-          :value="modelValue"
-          @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
         <span class="search-icon" aria-hidden="true">
           <SearchOutlineIcon />

@@ -31,6 +31,7 @@ export function useTasksPage() {
     if (!event) {
       return
     }
+    //@ts-expect-error
     target?.navForward(event)
   }
 
@@ -38,6 +39,7 @@ export function useTasksPage() {
     if (!event) {
       return
     }
+    //@ts-expect-error
     target?.navBackward(event)
   }
 

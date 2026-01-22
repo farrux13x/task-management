@@ -1,24 +1,11 @@
 <script setup lang="ts">
 import InputText from 'primevue/inputtext'
 import SearchIcon from './icons/SearchIcon.vue'
-
-const props = defineProps<{
-  modelValue?: string
-}>()
-
-const emit = defineEmits<{
-  (event: 'update:modelValue', value: string): void
-}>()
 </script>
 
 <template>
   <div class="search-bar">
-    <InputText
-      :model-value="props.modelValue"
-      placeholder="Search Name"
-      class="search-input"
-      @update:model-value="emit('update:modelValue', $event)"
-    />
+    <InputText placeholder="Search Name" class="search-input" />
     <SearchIcon class="search-icon" />
   </div>
 </template>

@@ -26,7 +26,7 @@ const props = defineProps<{
         :src="props.mentor.image"
         :alt="props.mentor.name"
       />
-      <div>
+      <div style="overflow: hidden;">
         <h3>{{ props.mentor.name }}</h3>
         <p>{{ props.mentor.role }}</p>
       </div>
@@ -60,42 +60,48 @@ const props = defineProps<{
 .mentor-card {
   background: #ffffff;
   border-radius: 24px;
-  padding: 20px 22px;
+  padding: 1.2500rem 1.3750rem;
   display: grid;
-  gap: 16px;
-  margin: 10px;
+  gap: 1rem;
+  margin: 0.6250rem;
 }
 
 .mentor-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 16px;
+  gap: 1rem;
   align-items: center;
 }
 
 .mentor-avatar {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 10px 16px rgba(18, 22, 40, 0.14);
 }
 
 .mentor-header h3 {
+  white-space: nowrap;   
+  overflow: hidden;       
+  text-overflow: ellipsis;
   margin: 0;
   font-size: 1.1rem;
   color: var(--text-strong);
 }
 
 .mentor-header p {
-  margin: 6px 0 0;
+  white-space: nowrap;    
+  overflow: hidden;       
+  text-overflow: ellipsis;
+  margin: 0.3750rem 0 0;
   color: #7f86a8;
   font-weight: 500;
 }
 
 .mentor-meta {
   display: flex;
-  gap: 28px;
+  justify-content: space-between;
   flex-wrap: wrap;
   color: var(--text-strong);
 }
@@ -103,7 +109,7 @@ const props = defineProps<{
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5000rem;
   font-weight: 600;
 }
 
@@ -129,7 +135,7 @@ const props = defineProps<{
 
 @media (max-width: 600px) {
   .mentor-card {
-    margin: 6px 0;
+    margin: 0.3750rem 0;
   }
 
   .mentor-header {

@@ -3,51 +3,43 @@ import Carousel from 'primevue/carousel'
 import TaskCard from '@components/TaskCard.vue'
 import ArrowLeftIcon from '@components/icons/ArrowLeftIcon.vue'
 import ArrowRightIcon from '@components/icons/ArrowRightIcon.vue'
-import MentorSearchBar from '@components/mentors/MentorSearchBar.vue'
 import TaskSearchBar from '@components/TaskSearchBar.vue'
 import { useTasksPage } from '../model/useTasksPage'
 
 const {
+  search,
   teamMembers,
   timeLimitCarousel,
   newTaskCarousel,
   triggerNext,
   triggerPrev,
-  timeLimitTasks,
-  newTasks,
+  filteredTasks,
+  carouselKey,
   responsiveOptions,
   openTask,
 } = useTasksPage()
 </script>
 
 <template>
-  <div class="task-desktop-search">
-    <MentorSearchBar />
-  </div>
+  <TaskSearchBar v-model="search" />
   <section class="task-page">
-    <div class="task-mobile-header">
-      <h2>Explore Task</h2>
-      <TaskSearchBar />
-    </div>
     <div class="task-section">
       <Carousel
+        :key="`time-${carouselKey}`"
         ref="timeLimitCarousel"
         class="task-carousel"
-        :value="timeLimitTasks"
+        :value="filteredTasks"
         :num-visible="3"
         :num-scroll="1"
+        circular 
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
       >
         <template #item="{ data }">
           <TaskCard
-            :title="data.title"
-            :category="data.category"
-            :progress="data.progress"
-            :time-label="data.timeLabel"
-            :image="data.image"
             :team-members="teamMembers"
+            :task="data"
             @click="openTask(data.id)"
           />
         </template>
@@ -56,8 +48,8 @@ const {
           <div class="section-header">
             <h2>Time Limit</h2>
             <div class="section-controls">
-              <ArrowLeftIcon @click="triggerPrev(timeLimitCarousel)" />
-              <ArrowRightIcon @click="triggerNext(timeLimitCarousel)" />
+              <ArrowLeftIcon @click="triggerPrev(timeLimitCarousel, $event)" />
+              <ArrowRightIcon @click="triggerNext(timeLimitCarousel, $event)" />
             </div>
           </div>
         </template>
@@ -66,22 +58,20 @@ const {
 
     <div class="task-section">
       <Carousel
+        :key="`new-${carouselKey}`"
         ref="newTaskCarousel"
         class="task-carousel"
-        :value="newTasks"
+        :value="filteredTasks"
         :num-visible="3"
         :num-scroll="1"
+        circular 
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
       >
         <template #item="{ data }">
           <TaskCard
-            :title="data.title"
-            :category="data.category"
-            :progress="data.progress"
-            :time-label="data.timeLabel"
-            :image="data.image"
+            :task="data"
             :team-members="teamMembers"
             @click="openTask(data.id)"
           />
@@ -90,8 +80,8 @@ const {
           <div class="section-header">
             <h2>New Task</h2>
             <div class="section-controls">
-              <ArrowLeftIcon @click="triggerPrev(newTaskCarousel)" />
-              <ArrowRightIcon @click="triggerNext(newTaskCarousel)" />
+              <ArrowLeftIcon @click="triggerPrev(newTaskCarousel, $event)" />
+              <ArrowRightIcon @click="triggerNext(newTaskCarousel, $event)" />
             </div>
           </div>
         </template>
@@ -106,13 +96,13 @@ const {
 }
 
 .task-page {
-  padding: 18px 22px 32px;
+  padding: 1.1250rem 1.3750rem 2rem;
   overflow: auto;
-  gap: 26px;
+  gap: 1.6250rem;
 }
 
 .task-section {
-  gap: 16px;
+  gap: 1rem;
 }
 
 .section-header {
@@ -130,7 +120,7 @@ const {
 .section-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.6250rem;
   color: var(--text-strong);
 }
 
@@ -141,39 +131,24 @@ const {
 }
 
 .task-carousel {
-  padding-bottom: 6px;
+  padding-bottom: 0.3750rem;
 }
 
 .task-carousel :deep(.p-carousel-content) {
-  gap: 18px;
+  gap: 1.1250rem;
 }
 
 .task-carousel :deep(.p-carousel-item) {
-  padding: 6px 4px 14px;
+  padding: 0.3750rem 0.2500rem 0.8750rem;
 }
 
-.task-mobile-header {
-  display: none;
-  gap: 18px;
-}
-
-.task-mobile-header h2 {
-  margin: 0;
-  font-size: 1.9rem;
-  color: var(--text-strong);
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .task-desktop-search {
     display: none;
   }
 
   .task-page {
-    padding: 16px 18px 28px;
-  }
-
-  .task-mobile-header {
-    display: grid;
+    padding: 0.5000rem 1.1250rem 1.7500rem;
   }
 }
 </style>

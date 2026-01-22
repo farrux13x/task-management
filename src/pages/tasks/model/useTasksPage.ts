@@ -1,4 +1,4 @@
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useTasksStore } from '@/stores/tasks'
 import { useRouter } from 'vue-router'
 
@@ -9,6 +9,7 @@ type CarouselInstance = {
 
 export function useTasksPage() {
   const router = useRouter()
+  const search = ref('')
 
   const avatars = [
     'https://i.pravatar.cc/100?img=12',
@@ -26,46 +27,39 @@ export function useTasksPage() {
   const timeLimitCarousel = ref<CarouselInstance | null>(null)
   const newTaskCarousel = ref<CarouselInstance | null>(null)
 
-  const triggerNext = (target: CarouselInstance | null) => {
-    target?.navForward()
+  const triggerNext = (target: CarouselInstance | null, event?: Event) => {
+    if (!event) {
+      return
+    }
+    target?.navForward(event)
   }
 
-  const triggerPrev = (target: CarouselInstance | null) => {
-    target?.navBackward()
+  const triggerPrev = (target: CarouselInstance | null, event?: Event) => {
+    if (!event) {
+      return
+    }
+    target?.navBackward(event)
   }
 
   const tasksStore = useTasksStore()
 
-  const timeLimitTasks = computed(() =>
-    tasksStore.tasks.map((task, index) => ({
-      title: task.title,
-      id: task.id,
-      category: task.category,
-      progress: task.progress,
-      timeLabel: task.duration,
-      image: task.image,
-    })),
-  )
+  const filteredTasks = computed(() => {
+    const term = search.value.trim().toLowerCase()
+    if (!term) {
+      return tasksStore.tasks
+    }
+    return tasksStore.tasks.filter((task) =>
+      task.title.toLowerCase().includes(term),
+    )
+  })
 
-  const newTasks = computed(() =>
-    tasksStore.tasks.map((task, index) => ({
-      title: task.title,
-      id: task.id,
-      category: task.category,
-      progress: task.progress,
-      timeLabel: task.duration,
-      image: task.image,
-    })),
+  const carouselKey = computed(
+    () => `${search.value.trim().toLowerCase()}-${filteredTasks.value.length}`,
   )
 
   const responsiveOptions = [
     {
-      breakpoint: '1200px',
-      numVisible: 2,
-      numScroll: 1,
-    },
-    {
-      breakpoint: '900px',
+      breakpoint: '1300px',
       numVisible: 1,
       numScroll: 1,
     },
@@ -75,20 +69,15 @@ export function useTasksPage() {
     router.push({ name: 'task', params: { id: id } })
   }
 
-  onMounted(() => {
-    if (!tasksStore.tasks.length) {
-      tasksStore.fetchTasks()
-    }
-  })
-
   return {
+    search,
     teamMembers,
     timeLimitCarousel,
     newTaskCarousel,
     triggerNext,
     triggerPrev,
-    timeLimitTasks,
-    newTasks,
+    filteredTasks,
+    carouselKey,
     responsiveOptions,
     openTask,
   }

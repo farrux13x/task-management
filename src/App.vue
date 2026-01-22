@@ -33,6 +33,7 @@ const route = useRoute()
 }
 
 .content {
+  height: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -42,27 +43,28 @@ const route = useRoute()
 
 .overview-panel {
   overflow: auto;
-  padding: 32px;
-  gap: 32px;
+  padding: 1.2rem;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .app {
     flex-direction: column;
     overflow-y: auto;
-    padding-bottom: 88px;
+    padding-bottom: 5.5000rem;
   }
 
   .content {
+    /* height: unset; */
     flex: none;
     overflow: visible;
   }
 
   .overview-panel {
-    padding: 0 18px 24px;
-    gap: 20px;
+    padding: 0 1.1250rem 1.5000rem;
+    gap: 1.2500rem;
     overflow: visible;
   }
 }

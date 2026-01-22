@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
 import Tab from 'primevue/tab'
@@ -9,8 +10,10 @@ import SelectButton from 'primevue/selectbutton'
 import ToggleSwitch from 'primevue/toggleswitch'
 import Button from 'primevue/button'
 import { useSettingsPage } from '../model/useSettingsPage'
+import Toast from 'primevue/toast'
 
 const {
+  applyStoredSettings,
   languageOptions,
   timezoneOptions,
   timeFormatOptions,
@@ -18,11 +21,18 @@ const {
   timezone,
   timeFormat,
   notifications,
+  saveGeneral,
+  saveNotifications,
 } = useSettingsPage()
+
+onMounted(() => {
+  applyStoredSettings()
+})
 </script>
 
 <template>
   <section class="settings">
+    <Toast />
     <div class="settings-card">
       <Tabs value="0">
         <TabList>
@@ -59,41 +69,27 @@ const {
                   :options="timeFormatOptions"
                 />
               </div>
-
-              <Button label="Save Changes" severity="primary" />
+              <Button
+                label="Save Changes"
+                @click="saveGeneral"
+                severity="primary"
+              />
             </div>
           </TabPanel>
           <TabPanel value="1">
             <div class="notification-list">
-              <div class="notification-item">
+              <div v-for="value in notifications" class="notification-item">
                 <ToggleSwitch
-                  v-model="notifications.message"
+                  v-model="value.toggle"
                   inputId="notify-message"
                 />
-                <label for="notify-message">Message</label>
+                <label for="notify-message">{{value.name}}</label>
               </div>
-              <div class="notification-item">
-                <ToggleSwitch
-                  v-model="notifications.taskUpdate"
-                  inputId="notify-task-update"
-                />
-                <label for="notify-task-update">Task Update</label>
-              </div>
-              <div class="notification-item">
-                <ToggleSwitch
-                  v-model="notifications.taskDeadline"
-                  inputId="notify-task-deadline"
-                />
-                <label for="notify-task-deadline">Task Deadline</label>
-              </div>
-              <div class="notification-item">
-                <ToggleSwitch
-                  v-model="notifications.mentorHelp"
-                  inputId="notify-mentor-help"
-                />
-                <label for="notify-mentor-help">Mentor Help</label>
-              </div>
-              <Button label="Save Changes" severity="primary" />
+              <Button
+                label="Save Changes"
+                severity="primary"
+                @click="saveNotifications"
+              />
             </div>
           </TabPanel>
         </TabPanels>
@@ -105,24 +101,26 @@ const {
 <style scoped>
 .settings {
   width: 100%;
+  padding: 2rem;
 }
 
 .settings-card {
+  border-radius: 10px;
   background: #ffffff;
-  padding: 20px 24px 28px;
+  padding: 1.2500rem 1.5000rem 1.7500rem;
   box-shadow: 0 18px 32px rgba(15, 18, 32, 0.06);
 }
 
 .settings-form {
   display: grid;
-  gap: 22px;
+  gap: 1.3750rem;
   max-width: 420px;
-  padding: 8px 4px 0;
+  padding: 0.5000rem 0.2500rem 0;
 }
 
 .field {
   display: grid;
-  gap: 10px;
+  gap: 0.6250rem;
 }
 
 .field-label {
@@ -132,15 +130,15 @@ const {
 
 .notification-list {
   display: grid;
-  gap: 18px;
+  gap: 1.1250rem;
   max-width: 420px;
-  padding: 8px 4px 0;
+  padding: 0.5000rem 0.2500rem 0;
 }
 
 .notification-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   font-weight: 600;
   color: var(--text-strong);
 }
@@ -149,9 +147,9 @@ const {
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .settings-card {
-    padding: 18px 18px 24px;
+    padding: 0.5000rem 1.1250rem 1.5000rem;
   }
 
   .settings-form {

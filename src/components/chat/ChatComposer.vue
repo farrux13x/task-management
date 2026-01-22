@@ -43,7 +43,7 @@ const submitMessage = () => {
       </Button>
       <Button
         type="button"
-        severity="primary"
+        :severity="draft.length > 0 ? 'primary' : 'secondary'"
         aria-label="Send message"
         @click="submitMessage"
       >
@@ -60,9 +60,8 @@ const submitMessage = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 16px 18px;
-  border-radius: 18px;
+  gap: 0.7500rem;
+  padding: 1rem 1.1250rem;
   background: #ffffff;
   box-shadow: 0 16px 28px rgba(18, 20, 34, 0.06);
 }

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { useTasksStore, TaskItem } from '@/stores/tasks'
+import { computed } from 'vue'
+import type { TaskItem } from '@/stores/tasks'
 
 import CheckIcon from '@/components/icons/CheckIcon.vue'
 import ClockIcon from '@/components/icons/ClockIcon.vue'
@@ -11,9 +10,9 @@ import ShareArrowIcon from '@/components/icons/ShareArrowIcon.vue'
 import UsersIcon from '@/components/icons/UsersIcon.vue'
 import VolumeIcon from '@/components/icons/VolumeIcon.vue'
 
-const tasksStore = useTasksStore()
-const route = useRoute()
-const task = ref<TaskItem | null>(null)
+const props = defineProps<{
+  task: TaskItem | null
+}>()
 
 const assessments = [
   'Understanding the tools in Figma',
@@ -24,27 +23,23 @@ const assessments = [
 
 const heroImage = computed(
   () =>
-    task.value?.image ||
+    props.task?.image ||
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
 )
 
-const progressValue = computed(() => task.value?.progress ?? 90)
+const progressValue = computed(() => props.task?.progress ?? 90)
 const taskTitle = computed(
-  () => task.value?.title || 'Creating Awesome Mobile Apps',
+  () => props.task?.title || 'Creating Awesome Mobile Apps',
 )
 const taskCategory = computed(
-  () => task.value?.category || 'UI/UX Design . Apps Design',
+  () => props.task?.category || 'UI/UX Design . Apps Design',
 )
 const taskDescription = computed(
   () =>
-    task.value?.description ||
+    props.task?.description ||
     'Follow the video tutorial above. Understand how to use each tool in the Figma application. Also learn how to make a good and correct design. Starting from spacing, typography, content, and many other design hierarchies. Then try to make it yourself with your imagination and inspiration.',
 )
-const taskDuration = computed(() => task.value?.duration || '1 Hour')
-
-onMounted(() => {
-  task.value = tasksStore.tasks.find((i) => i.id === route.params?.id) || null
-})
+const taskDuration = computed(() => props.task?.duration || '1 Hour')
 </script>
 
 <template>
@@ -145,10 +140,10 @@ onMounted(() => {
   bottom: 16px;
   background: #ffffff;
   border-radius: 14px;
-  padding: 10px 14px;
+  padding: 0.6250rem 0.8750rem;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
-  gap: 14px;
+  gap: 0.8750rem;
   align-items: center;
   box-shadow: 0 12px 24px rgba(18, 22, 40, 0.18);
 }
@@ -191,7 +186,7 @@ onMounted(() => {
 .media-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.6250rem;
   color: #1f2435;
 }
 
@@ -201,9 +196,9 @@ onMounted(() => {
 }
 
 .content {
-  padding: 24px 22px 28px;
+  padding: 1.5000rem 1.3750rem 1.7500rem;
   display: grid;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .content h2 {
@@ -215,7 +210,7 @@ onMounted(() => {
 .meta-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   flex-wrap: wrap;
   font-weight: 600;
   color: #5b5f7d;
@@ -239,7 +234,7 @@ onMounted(() => {
 
 .stats-row {
   display: flex;
-  gap: 24px;
+  gap: 1.5000rem;
   flex-wrap: wrap;
   color: #1f2435;
   font-weight: 600;
@@ -248,7 +243,7 @@ onMounted(() => {
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.6250rem;
 }
 
 .stat-item :deep(svg) {
@@ -259,7 +254,7 @@ onMounted(() => {
 
 .detail-block {
   display: grid;
-  gap: 10px;
+  gap: 0.6250rem;
 }
 
 .detail-block h3 {
@@ -279,13 +274,13 @@ onMounted(() => {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 14px;
+  gap: 0.8750rem;
 }
 
 .checklist li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
   color: #1f2435;
   font-weight: 600;
 }
@@ -305,7 +300,7 @@ onMounted(() => {
   height: 16px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .media-bar {
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto;
@@ -316,7 +311,7 @@ onMounted(() => {
   }
 
   .content {
-    padding: 22px 20px 26px;
+    padding: 1.3750rem 1.2500rem 1.6250rem;
   }
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <section class="running-card">
-    <h3>Running Task</h3>
-    <div class="running-total">65</div>
+    <div>
+      <h3>Running Task</h3>
+      <div class="running-total">65</div>
+    </div>
     <div class="running-metrics">
       <div class="progress-ring" style="--value: 45%">
         <div class="progress-value">45%</div>
@@ -19,10 +21,9 @@
   position: relative;
   background: #181a28;
   border-radius: 24px;
-  padding: 20px 22px 24px;
+  padding: 1.2500rem 1.3750rem 1.5000rem;
   color: #ffffff;
-  display: grid;
-  gap: 18px;
+  gap: 1.1250rem;
   box-shadow: 0 18px 32px rgba(12, 14, 30, 0.32);
 }
 
@@ -40,7 +41,7 @@
 .running-metrics {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.2500rem;
 }
 
 .progress-ring {
@@ -68,7 +69,7 @@
 
 .progress-meta {
   display: grid;
-  gap: 4px;
+  gap: 0.2500rem;
 }
 
 .meta-value {
@@ -80,10 +81,16 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-@media (max-width: 900px) {
-  .running-card {
-    padding: 18px 20px;
-    gap: 14px;
+@media (max-width: 1450px) {
+  .running-card{
+    display: flex;
+    justify-content: space-between;
+  }
+  /* .running-card {
+    padding: 1.1250rem 1.2500rem;
+    gap: 0.8750rem;
+    width: 100%;
+    display: flex;
   }
 
   .running-total {
@@ -102,6 +109,6 @@
 
   .progress-value {
     font-size: 1rem;
-  }
+  } */
 }
 </style>

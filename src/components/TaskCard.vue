@@ -7,11 +7,13 @@ type TeamMember = {
 }
 
 const props = defineProps<{
-  title: string
-  category: string
-  progress: number
-  timeLabel: string
-  image: string
+  task: {
+    title: string
+    category: string
+    progress: number
+    duration: string
+    image: string
+  }
   teamMembers: TeamMember[]
 }>()
 </script>
@@ -19,35 +21,35 @@ const props = defineProps<{
 <template>
   <article class="task-card">
     <div class="task-hero">
-      <img :src="props.image" :alt="props.title" />
+      <img :src="props.task.image" :alt="props.task.title" />
     </div>
 
     <div class="task-body">
       <div class="task-heading">
-        <h3>{{ props.title }}</h3>
-        <p>{{ props.category }}</p>
+        <h3>{{ props.task.title }}</h3>
+        <p>{{ props.task.category }}</p>
       </div>
 
       <div class="progress-header">
         <span>Progress</span>
-        <strong>{{ props.progress }}%</strong>
+        <strong>{{ props.task.progress }}%</strong>
       </div>
 
       <div class="progress-track" role="presentation" aria-hidden="true">
         <span
           class="progress-fill"
-          :style="{ width: `${props.progress}%` }"
+          :style="{ width: `${props.task.progress}%` }"
         ></span>
         <span
           class="progress-thumb"
-          :style="{ left: `calc(${props.progress}% - 9px)` }"
+          :style="{ left: `calc(${props.task.progress}% - 9px)` }"
         ></span>
       </div>
 
       <div class="task-footer">
         <div class="deadline">
           <ClockIcon />
-          <span>{{ props.timeLabel }}</span>
+          <span>{{ props.task.duration }}</span>
         </div>
 
         <div class="avatars" aria-label="Assigned team members">
@@ -90,9 +92,9 @@ const props = defineProps<{
 }
 
 .task-body {
-  padding: 18px 20px 20px;
+  padding: 1.1250rem 1.2500rem 1.2500rem;
   display: grid;
-  gap: 18px;
+  gap: 1.1250rem;
 }
 
 .task-heading h3 {
@@ -102,7 +104,7 @@ const props = defineProps<{
 }
 
 .task-heading p {
-  margin: 6px 0 0;
+  margin: 0.3750rem 0 0;
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -156,13 +158,13 @@ const props = defineProps<{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .deadline {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
   font-weight: 600;
   color: var(--text-strong);
 }
@@ -177,7 +179,7 @@ const props = defineProps<{
   height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -10px;
+  margin-left: -0.6250rem;
   box-shadow: 0 8px 14px rgba(18, 22, 40, 0.14);
 }
 
@@ -198,7 +200,7 @@ const props = defineProps<{
 
 @media (max-width: 600px) {
   .task-body {
-    padding: 18px 18px 22px;
+    padding: 1.1250rem 1.1250rem 1.3750rem;
   }
 
   .task-footer {

@@ -13,7 +13,6 @@ const isChatView = computed(() => route.name === 'chat')
 <template>
   <section class="message-layout" :class="{ 'is-chat': isChatView }">
     <aside class="message-list">
-      <h2 class="message-title">Message</h2>
       <SearchBar v-model="search" />
       <div class="chat-list">
         <ChatItem
@@ -41,6 +40,7 @@ const isChatView = computed(() => route.name === 'chat')
   overflow: hidden;
   display: flex;
   height: 100%;
+  background-color: white;
 }
 
 .message-list {
@@ -51,37 +51,25 @@ const isChatView = computed(() => route.name === 'chat')
 
 .chat-list {
   overflow: auto;
-  /* display: grid; */
-  gap: 6px;
+  gap: 0.3750rem;
   flex: 1;
 }
 
 .message-detail {
   border-left: 1px solid #eef0f5;
   width: 100%;
+  height: 100%;
   background: #f8f9ff;
-}
-
-.message-title {
-  margin: 0;
-  font-size: 1.8rem;
-  color: var(--text-strong);
-  display: none;
 }
 
 @media (max-width: 980px) {
   .message-layout {
     grid-template-columns: 1fr;
-    height: auto;
-  }
-
-  .message-title {
-    display: block;
   }
 
   .message-list {
-    padding: 8px 18px 24px;
-    gap: 16px;
+    padding: 0.5000rem 1.1250rem 1.5000rem;
+    gap: 1rem;
   }
 
   .message-detail {

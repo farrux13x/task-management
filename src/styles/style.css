@@ -1,5 +1,7 @@
 @import './typography.css';
-
+html {
+  font-size: 16px; /* Hozir 1rem = 16px */
+}
 :root {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-optical-sizing: auto;
@@ -30,6 +32,10 @@ html,
 body,
 #app {
   height: 100%;
+}
+p{
+  padding: 0px;
+  margin: 0;
 }
 
 body {
@@ -69,4 +75,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 12px;
+  }
 }

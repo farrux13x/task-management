@@ -33,8 +33,8 @@ defineProps<{
 .chat-item {
   cursor: pointer;
   display: flex;
-  gap: 16px;
-  padding: 16px 18px;
+  gap: 1rem;
+  padding: 1rem 1.1250rem;
   background: #ffffff;
   box-shadow: 0 16px 28px rgba(18, 20, 34, 0.06);
 }
@@ -49,13 +49,13 @@ defineProps<{
 .content {
   flex: 1;
   display: grid;
-  gap: 6px;
+  gap: 0.3750rem;
 }
 
 .top-row {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
   align-items: baseline;
 }
 
@@ -75,7 +75,7 @@ defineProps<{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
 }
 
 .bottom-row p {

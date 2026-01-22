@@ -34,7 +34,7 @@ const progressValue = computed(() => task.value?.progress ?? 90)
 const categoryLabel = computed(() => task.value?.category || 'UI/UX Designer')
 
 onMounted(() => {
-  task.value = tasksStore.tasks.find((i) => i.id === route.params?.id) || null
+  task.value = tasksStore.tasks.find((i) => i.id === Number(route.params?.id)) || null
 })
 </script>
 
@@ -113,9 +113,9 @@ onMounted(() => {
   width: 100%;
   background: #ffffff;
   border-radius: 26px;
-  padding: 20px;
+  padding: 1.2500rem;
   display: grid;
-  gap: 18px;
+  gap: 1.1250rem;
   box-shadow: 0 18px 36px rgba(17, 20, 38, 0.08);
 }
 
@@ -160,7 +160,7 @@ onMounted(() => {
 
 .detail-body {
   display: grid;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .title-block h2 {
@@ -170,7 +170,7 @@ onMounted(() => {
 }
 
 .title-block p {
-  margin: 6px 0 0;
+  margin: 0.3750rem 0 0;
   color: #5b5f7d;
   font-weight: 600;
 }
@@ -219,13 +219,13 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .time-badge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
   font-weight: 600;
   color: #1c2031;
 }
@@ -240,7 +240,7 @@ onMounted(() => {
   height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -10px;
+  margin-left: -0.6250rem;
   box-shadow: 0 8px 14px rgba(18, 22, 40, 0.14);
 }
 
@@ -251,7 +251,7 @@ onMounted(() => {
 .section-divider {
   height: 1px;
   background: rgba(187, 190, 210, 0.4);
-  margin: 4px 0;
+  margin: 0.2500rem 0;
 }
 
 .detail-header {
@@ -276,13 +276,13 @@ onMounted(() => {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 12px;
+  gap: 0.7500rem;
 }
 
 .detail-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
   font-weight: 600;
   color: #1c2031;
 }
@@ -307,7 +307,7 @@ onMounted(() => {
   background: #5f6df8;
   color: #ffffff;
   font-weight: 600;
-  padding: 14px 18px;
+  padding: 0.8750rem 1.1250rem;
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 14px 22px rgba(95, 109, 248, 0.35);
@@ -315,7 +315,7 @@ onMounted(() => {
 
 @media (max-width: 700px) {
   .detail-task-card {
-    padding: 18px;
+    padding: 1.1250rem;
   }
 
   .hero-image {

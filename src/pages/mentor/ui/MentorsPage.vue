@@ -8,6 +8,7 @@ import MentorCardDetailed from '@components/mentors/MentorCardDetailed.vue'
 import { useMentorsPage } from '../model/useMentorsPage'
 
 const {
+  search,
   mentorsCompact,
   mentorsDetailed,
   responsiveOptions,
@@ -19,13 +20,14 @@ const {
 
 <template>
   <!-- <h2 class="page-title">Explore Mentors</h2> -->
-  <MentorSearchBar />
+  <MentorSearchBar v-model="search" />
   <section class="mentors-page">
     <Carousel
       ref="mentorsRef"
       :value="mentorsCompact"
       :num-visible="3"
       :num-scroll="1"
+      circular 
       :show-navigators="false"
       :responsive-options="responsiveOptions"
       :show-indicators="false"
@@ -38,8 +40,8 @@ const {
         <div class="d-flex-between">
           <h2 class="section-title">Recent Mentors</h2>
           <div class="d-flex-center">
-            <ArrowLeftIcon @click="triggerPrev(mentorsRef)" />
-            <ArrowRightIcon @click="triggerNext(mentorsRef)" />
+            <ArrowLeftIcon @click="triggerPrev(mentorsRef, $event)" />
+            <ArrowRightIcon @click="triggerNext(mentorsRef, $event)" />
           </div>
         </div>
       </template>
@@ -58,8 +60,8 @@ const {
 
 <style scoped>
 .mentors-page {
-  padding: 18px 22px 32px;
-  gap: 22px;
+  padding: 1.1250rem 1.3750rem 2rem;
+  gap: 1.3750rem;
   overflow: auto;
 }
 
@@ -79,12 +81,12 @@ const {
 .mentor-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 1.1250rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .mentors-page {
-    padding: 18px;
+    padding: 1.1250rem;
   }
 
   .page-title {

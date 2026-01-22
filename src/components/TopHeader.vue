@@ -45,7 +45,7 @@ const pageName = computed(() => route.meta.title)
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  padding: 16px 22px;
+  padding: 1rem 1.3750rem;
 }
 
 .header-title {
@@ -57,12 +57,12 @@ const pageName = computed(() => route.meta.title)
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.8750rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .top-header {
-    padding: 12px 16px;
+    padding: 0.7500rem 1rem;
   }
 
   .header-title {

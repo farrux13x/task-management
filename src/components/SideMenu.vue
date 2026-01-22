@@ -97,7 +97,7 @@ const handleNavigate = (routeName: string) => {
 .sidebar {
   width: 260px;
   background: var(--sidebar-bg);
-  padding: 28px 20px 24px;
+  padding: 1.7500rem 1.2500rem 1.5000rem;
   box-shadow: 0 24px 40px rgba(20, 24, 44, 0.08);
   display: flex;
   flex-direction: column;
@@ -107,15 +107,15 @@ const handleNavigate = (routeName: string) => {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 4px 6px 18px;
+  gap: 0.7500rem;
+  padding: 0.2500rem 0.3750rem 1.1250rem;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 12px 4px;
+  gap: 0.7500rem;
+  padding: 0.7500rem 0.2500rem;
 }
 
 .help-card {
@@ -129,7 +129,7 @@ const handleNavigate = (routeName: string) => {
     var(--card-bg);
   color: #eef0ff;
   border-radius: 18px;
-  padding: 32px 18px 18px;
+  padding: 2rem 1.1250rem 1.1250rem;
   position: relative;
 }
 
@@ -152,13 +152,13 @@ const handleNavigate = (routeName: string) => {
 
 .help-body h3 {
   text-align: center;
-  margin: 6px 0 8px;
+  margin: 0.3750rem 0 0.5000rem;
   font-size: 1.05rem;
 }
 
 .help-body p {
   text-align: center;
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
   font-size: 0.86rem;
   line-height: 1.4;
 }
@@ -167,9 +167,9 @@ const handleNavigate = (routeName: string) => {
   border-color: white;
   box-shadow: none;
   justify-content: start;
-  padding: 10px 20px;
+  padding: 0.6250rem 1.2500rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .sidebar {
     position: fixed;
     left: 0;
@@ -177,11 +177,10 @@ const handleNavigate = (routeName: string) => {
     bottom: 0;
     width: 100%;
     height: 72px;
-    padding: 10px 16px;
+    padding: 0.6250rem 1rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-radius: 20px 20px 0 0;
     background: #ffffff;
     box-shadow: 0 -12px 30px rgba(18, 22, 40, 0.12);
     z-index: 20;
@@ -196,7 +195,7 @@ const handleNavigate = (routeName: string) => {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 0.5000rem;
     padding: 0;
     width: 100%;
   }
@@ -204,7 +203,7 @@ const handleNavigate = (routeName: string) => {
   .menu-button {
     flex: 1;
     justify-content: center;
-    padding: 10px 8px;
+    padding: 0.6250rem 0.5000rem;
     border-radius: 16px;
   }
 

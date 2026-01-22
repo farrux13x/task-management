@@ -77,7 +77,7 @@ const handleBack = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 18px;
+  padding: 1rem 1.1250rem;
   background: #ffffff;
   box-shadow: 0 16px 28px rgba(18, 20, 34, 0.06);
 }
@@ -89,7 +89,7 @@ const handleBack = () => {
 .profile {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.8750rem;
 }
 
 .avatar {
@@ -107,7 +107,7 @@ const handleBack = () => {
 .status {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5000rem;
   color: #8b90a8;
   font-size: 0.92rem;
 }
@@ -122,11 +122,11 @@ const handleBack = () => {
 .actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.7500rem;
 }
 @media (max-width: 980px) {
   .chat-header {
-    padding: 14px 16px;
+    padding: 0.8750rem 1rem;
     box-shadow: none;
     border-bottom: 1px solid #eff1f7;
   }

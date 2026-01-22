@@ -1,14 +1,27 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import Button from 'primevue/button'
 import FolderUploadIcon from './icons/FolderUploadIcon.vue'
+import type { TaskItem } from '@/stores/tasks'
+
+const props = defineProps<{
+  task: TaskItem | null
+}>()
+
+const taskTitle = computed(
+  () => props.task?.title || 'Creating Awesome Mobile Apps',
+)
+const taskCategory = computed(
+  () => props.task?.category || 'UI UX Design . Apps Design',
+)
 </script>
 
 <template>
   <article class="assigned-assignments">
     <header class="assignment-header">
       <span class="eyebrow">Assigned Assignments</span>
-      <h3>Creating Awesome Mobile Apps</h3>
-      <p class="assignment-meta">UI UX Design . Apps Design</p>
+      <h3>{{ taskTitle }}</h3>
+      <p class="assignment-meta">{{ taskCategory }}</p>
     </header>
 
     <section class="detail-section">
@@ -54,8 +67,8 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 .assigned-assignments {
   width: 100%;
   background: #ffffff;
-  padding: 22px;
-  gap: 22px;
+  padding: 1.3750rem;
+  gap: 1.3750rem;
   border-radius: 24px;
   box-shadow: 0 18px 32px rgba(15, 18, 32, 0.06);
   display: grid;
@@ -63,7 +76,7 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 
 .assignment-header {
   display: grid;
-  gap: 10px;
+  gap: 0.6250rem;
 }
 
 .eyebrow {
@@ -87,7 +100,7 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 
 .detail-section {
   display: grid;
-  gap: 14px;
+  gap: 0.8750rem;
 }
 
 .detail-section h4 {
@@ -98,14 +111,14 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 
 .detail-list {
   display: grid;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .detail-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 1.1250rem;
   color: #5b5f7d;
   font-size: 1rem;
 }
@@ -124,7 +137,7 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 .drop-area {
   border: 2px dashed rgba(94, 110, 248, 0.6);
   border-radius: 20px;
-  padding: 36px;
+  padding: 2.2500rem;
   display: grid;
   place-items: center;
   min-height: 160px;
@@ -155,13 +168,13 @@ import FolderUploadIcon from './icons/FolderUploadIcon.vue'
 .submit-btn {
   width: 100%;
   border-radius: 18px;
-  padding: 14px 0;
+  padding: 0.8750rem 0;
   font-size: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .assigned-assignments {
-    padding: 20px;
+    padding: 1.2500rem;
   }
 
   .assignment-header h3 {

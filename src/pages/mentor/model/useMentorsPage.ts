@@ -1,5 +1,5 @@
-import { computed, onMounted, ref } from 'vue'
-import { useMentorsStore } from '../../../stores/mentors'
+import { computed, ref } from 'vue'
+import { useMentorsStore } from '@/stores/mentors'
 
 type CarouselInstance = {
   navForward: () => void
@@ -8,9 +8,21 @@ type CarouselInstance = {
 
 export function useMentorsPage() {
   const mentorsStore = useMentorsStore()
+  const search = ref('')
+
+  const filteredMentors = computed(() => {
+    const term = search.value.trim().toLowerCase()
+    if (!term) {
+      return mentorsStore.mentors
+    }
+    console.log(term)
+    return mentorsStore.mentors.filter((mentor) =>
+      mentor.name.toLowerCase().includes(term),
+    )
+  })
 
   const mentorsCompact = computed(() => mentorsStore.mentors.slice(0, 4))
-  const mentorsDetailed = computed(() => mentorsStore.mentors.slice(2))
+  const mentorsDetailed = computed(() => filteredMentors.value)
 
   const responsiveOptions = [
     {
@@ -19,7 +31,7 @@ export function useMentorsPage() {
       numScroll: 1,
     },
     {
-      breakpoint: '900px',
+      breakpoint: '1050px',
       numVisible: 1,
       numScroll: 1,
     },
@@ -27,21 +39,22 @@ export function useMentorsPage() {
 
   const mentorsRef = ref<CarouselInstance | null>(null)
 
-  const triggerNext = (target: CarouselInstance | null) => {
-    target?.navForward()
-  }
-
-  const triggerPrev = (target: CarouselInstance | null) => {
-    target?.navBackward()
-  }
-
-  onMounted(() => {
-    if (!mentorsStore.mentors.length) {
-      mentorsStore.fetchMentors()
+  const triggerNext = (target: CarouselInstance | null, event?: Event) => {
+    if (!event) {
+      return
     }
-  })
+    target?.navForward(event)
+  }
+
+  const triggerPrev = (target: CarouselInstance | null, event?: Event) => {
+    if (!event) {
+      return
+    }
+    target?.navBackward(event)
+  }
 
   return {
+    search,
     mentorsCompact,
     mentorsDetailed,
     responsiveOptions,

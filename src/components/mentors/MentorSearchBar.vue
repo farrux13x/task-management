@@ -3,6 +3,14 @@ import Button from 'primevue/button'
 import SearchOutlineIcon from '../icons/SearchOutlineIcon.vue'
 import CategoryGridIcon from '../icons/CategoryGridIcon.vue'
 import SortLinesIcon from '../icons/SortLinesIcon.vue'
+
+defineProps<{
+  modelValue: string
+}>()
+
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: string): void
+}>()
 </script>
 
 <template>
@@ -12,6 +20,8 @@ import SortLinesIcon from '../icons/SortLinesIcon.vue'
         type="text"
         placeholder="Search Mentors"
         aria-label="Search Mentors"
+        :value="modelValue"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       />
       <span class="search-icon" aria-hidden="true">
         <SearchOutlineIcon />
@@ -39,11 +49,11 @@ import SortLinesIcon from '../icons/SortLinesIcon.vue'
 
 <style scoped>
 .mentor-search {
-  padding: 0 32px 32px 32px;
+  padding: 0 2rem 2rem 2rem;
   background: #ffffff;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
+  gap: 1.1250rem;
   align-items: center;
 }
 
@@ -55,7 +65,7 @@ import SortLinesIcon from '../icons/SortLinesIcon.vue'
   width: 100%;
   border-radius: 18px;
   border: 1px solid #eef0f6;
-  padding: 14px 50px 14px 18px;
+  padding: 0.8750rem 3.1250rem 0.8750rem 1.1250rem;
   font-size: 1rem;
   color: var(--text-strong);
   background: #ffffff;
@@ -81,7 +91,7 @@ import SortLinesIcon from '../icons/SortLinesIcon.vue'
 
 .filter-actions {
   display: flex;
-  gap: 14px;
+  gap: 0.8750rem;
 }
 
 .filter-shortcut {
@@ -103,10 +113,10 @@ import SortLinesIcon from '../icons/SortLinesIcon.vue'
   height: 22px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .mentor-search {
     grid-template-columns: 1fr auto;
-    padding: 0 18px 18px;
+    padding: 0 1.1250rem 1.1250rem;
   }
 
   .filter-actions {

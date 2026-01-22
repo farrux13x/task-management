@@ -10,7 +10,7 @@ import { useTasksPage } from '@pages/tasks'
 import { useMentorsPage } from '@pages/mentor'
 
 const {
-  newTasks,
+  filteredTasks,
   teamMembers,
   triggerNext,
   triggerPrev,
@@ -24,9 +24,9 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
 
 <template>
   <section class="overview-page">
-    <div class="top-row">
-      <RunningTaskCard />
-      <ActivityChart />
+    <div class="one">
+      <RunningTaskCard class="running-card"/>
+      <ActivityChart class="chart-card"/>
     </div>
 
     <Carousel
@@ -34,6 +34,7 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
       :value="mentorsCompact"
       :num-visible="2"
       :num-scroll="1"
+      circular 
       :show-navigators="false"
       :responsive-options="responsiveOptions"
       :show-indicators="false"
@@ -46,8 +47,8 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
         <div class="d-flex-between">
           <h2>Recent Mentors</h2>
           <div class="d-flex-center">
-            <ArrowLeftIcon @click="triggerPrev(mentorsRef)" />
-            <ArrowRightIcon @click="triggerNext(mentorsRef)" />
+            <ArrowLeftIcon @click="triggerPrev(mentorsRef, $event)" />
+            <ArrowRightIcon @click="triggerNext(mentorsRef, $event)" />
           </div>
         </div>
       </template>
@@ -57,20 +58,17 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
       <Carousel
         ref="timeLimitCarousel"
         class="task-carousel"
-        :value="newTasks"
+        :value="filteredTasks"
         :num-visible="2"
         :num-scroll="1"
+        circular 
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
       >
         <template #item="{ data }">
           <TaskCard
-            :title="data.title"
-            :category="data.category"
-            :progress="data.progress"
-            :time-label="data.timeLabel"
-            :image="data.image"
+            :task="data"
             :team-members="teamMembers"
             @click="openTask(data.id)"
           />
@@ -80,8 +78,8 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
           <div class="d-flex-between">
             <h2>Time Limit</h2>
             <div class="d-flex-between">
-              <ArrowLeftIcon @click="triggerPrev(timeLimitCarousel)" />
-              <ArrowRightIcon @click="triggerNext(timeLimitCarousel)" />
+              <ArrowLeftIcon @click="triggerPrev(timeLimitCarousel, $event)" />
+              <ArrowRightIcon @click="triggerNext(timeLimitCarousel, $event)" />
             </div>
           </div>
         </template>
@@ -93,35 +91,45 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
 <style scoped>
 .overview-page {
   overflow: auto;
-  padding: 18px 22px 32px;
-  gap: 26px;
-}
-
-.top-row {
-  display: grid;
-  grid-template-columns: minmax(220px, 260px) 1fr;
-  gap: 22px;
+  padding: 1.1250rem 1.3750rem 2rem;
+  gap: 1.6250rem;
 }
 
 .task-carousel :deep(.p-carousel-item) {
-  padding: 6px 4px 14px;
+  padding: 0.3750rem 0.2500rem 0.8750rem;
 }
-
+.one{
+  display: flex;
+  align-items: center;
+  gap: 1.2500rem;
+}
+.chart-card{
+  width: 70%;
+}
+.running-card{
+  width: 30%;
+}
 .section {
   display: grid;
-  gap: 16px;
+  gap: 1rem;
 }
 
-@media (max-width: 900px) {
-  .overview-page {
-    padding: 16px 18px 0;
-    gap: 20px;
-    overflow: visible;
+@media (max-width: 1450px) {
+  .one {
+    flex-flow: wrap;
   }
+  .chart-card{
+    width: 100%;
+  }
+  .running-card{
+    width: 100%;
+  }
+}
 
-  .top-row {
-    grid-template-columns: 1fr;
-    gap: 18px;
+@media (max-width: 1050px) {
+  .overview-page {
+    padding: 1rem 1.1250rem 0;
+    gap: 1.2500rem;
   }
 }
 </style>

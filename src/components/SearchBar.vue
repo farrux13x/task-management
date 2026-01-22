@@ -1,11 +1,24 @@
 <script setup lang="ts">
 import InputText from 'primevue/inputtext'
 import SearchIcon from './icons/SearchIcon.vue'
+
+defineProps<{
+  modelValue: string
+}>()
+
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: string): void
+}>()
 </script>
 
 <template>
   <div class="search-bar">
-    <InputText placeholder="Search Name" class="search-input" />
+    <InputText
+      placeholder="Search Name"
+      class="search-input"
+      :modelValue="modelValue"
+      @update:modelValue="(value) => emit('update:modelValue', value)"
+    />
     <SearchIcon class="search-icon" />
   </div>
 </template>
@@ -16,7 +29,7 @@ import SearchIcon from './icons/SearchIcon.vue'
   display: flex;
   align-items: center;
   background: #ffffff;
-  padding: 12px 16px;
+  padding: 0.7500rem 1rem;
   border-radius: 18px;
   border: 1px solid #eef0f6;
 }
@@ -25,7 +38,7 @@ import SearchIcon from './icons/SearchIcon.vue'
   width: 100%;
   border: none;
   box-shadow: none;
-  padding-right: 42px;
+  padding-right: 2.6250rem;
   font-size: 1rem;
 }
 

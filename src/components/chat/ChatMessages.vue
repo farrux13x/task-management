@@ -1,15 +1,8 @@
 <script setup lang="ts">
-type ChatMessage = {
-  id: number
-  type: 'badge' | 'outgoing' | 'incoming'
-  text?: string
-  time?: string
-  image?: string
-  caption?: string
-}
+import {Message} from '@/stores/chats.ts'
 
 defineProps<{
-  messages: ChatMessage[]
+  messages: Message[]
 }>()
 </script>
 
@@ -37,9 +30,12 @@ defineProps<{
 <style scoped>
 .messages {
   overflow: auto;
-  display: grid;
-  gap: 18px;
-  padding: 10px 6px 6px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1250rem;
+  height: 100%;
+  padding: 0.6250rem 0.3750rem 0.3750rem;
 }
 
 .message-row {
@@ -48,7 +44,7 @@ defineProps<{
 }
 
 .day-badge {
-  padding: 6px 14px;
+  padding: 0.3750rem 0.8750rem;
   border-radius: 12px;
   background: #151828;
   color: #ffffff;
@@ -58,8 +54,8 @@ defineProps<{
 .bubble {
   max-width: 420px;
   display: grid;
-  gap: 8px;
-  padding: 12px 14px;
+  gap: 0.5000rem;
+  padding: 0.7500rem 0.8750rem;
   border-radius: 14px;
   position: relative;
 }

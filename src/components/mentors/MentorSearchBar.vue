@@ -21,7 +21,9 @@ const emit = defineEmits<{
         placeholder="Search Mentors"
         aria-label="Search Mentors"
         :value="modelValue"
-        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        @input="
+          emit('update:modelValue', ($event.target as HTMLInputElement).value)
+        "
       />
       <span class="search-icon" aria-hidden="true">
         <SearchOutlineIcon />
@@ -53,7 +55,7 @@ const emit = defineEmits<{
   background: #ffffff;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   align-items: center;
 }
 
@@ -65,7 +67,7 @@ const emit = defineEmits<{
   width: 100%;
   border-radius: 18px;
   border: 1px solid #eef0f6;
-  padding: 0.8750rem 3.1250rem 0.8750rem 1.1250rem;
+  padding: 0.875rem 3.125rem 0.875rem 1.125rem;
   font-size: 1rem;
   color: var(--text-strong);
   background: #ffffff;
@@ -91,7 +93,7 @@ const emit = defineEmits<{
 
 .filter-actions {
   display: flex;
-  gap: 0.8750rem;
+  gap: 0.875rem;
 }
 
 .filter-shortcut {
@@ -116,7 +118,7 @@ const emit = defineEmits<{
 @media (max-width: 1050px) {
   .mentor-search {
     grid-template-columns: 1fr auto;
-    padding: 0 1.1250rem 1.1250rem;
+    padding: 0 1.125rem 1.125rem;
   }
 
   .filter-actions {

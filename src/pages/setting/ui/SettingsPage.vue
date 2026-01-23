@@ -79,11 +79,8 @@ onMounted(() => {
           <TabPanel value="1">
             <div class="notification-list">
               <div v-for="value in notifications" class="notification-item">
-                <ToggleSwitch
-                  v-model="value.toggle"
-                  inputId="notify-message"
-                />
-                <label for="notify-message">{{value.name}}</label>
+                <ToggleSwitch v-model="value.toggle" inputId="notify-message" />
+                <label for="notify-message">{{ value.name }}</label>
               </div>
               <Button
                 label="Save Changes"
@@ -107,20 +104,20 @@ onMounted(() => {
 .settings-card {
   border-radius: 10px;
   background: #ffffff;
-  padding: 1.2500rem 1.5000rem 1.7500rem;
+  padding: 1.25rem 1.5rem 1.75rem;
   box-shadow: 0 18px 32px rgba(15, 18, 32, 0.06);
 }
 
 .settings-form {
   display: grid;
-  gap: 1.3750rem;
+  gap: 1.375rem;
   max-width: 420px;
-  padding: 0.5000rem 0.2500rem 0;
+  padding: 0.5rem 0.25rem 0;
 }
 
 .field {
   display: grid;
-  gap: 0.6250rem;
+  gap: 0.625rem;
 }
 
 .field-label {
@@ -130,9 +127,9 @@ onMounted(() => {
 
 .notification-list {
   display: grid;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   max-width: 420px;
-  padding: 0.5000rem 0.2500rem 0;
+  padding: 0.5rem 0.25rem 0;
 }
 
 .notification-item {
@@ -149,7 +146,7 @@ onMounted(() => {
 
 @media (max-width: 1050px) {
   .settings-card {
-    padding: 0.5000rem 1.1250rem 1.5000rem;
+    padding: 0.5rem 1.125rem 1.5rem;
   }
 
   .settings-form {

@@ -25,7 +25,7 @@ const handleToggle = () => {
         :src="props.mentor.image"
         :alt="props.mentor.name"
       />
-      <div style="overflow: hidden;">
+      <div style="overflow: hidden">
         <h3>{{ props.mentor.name }}</h3>
         <p>{{ props.mentor.role }}</p>
       </div>
@@ -60,10 +60,10 @@ const handleToggle = () => {
 .mentor-card {
   background: #ffffff;
   border-radius: 24px;
-  padding: 1.2500rem 1.3750rem;
+  padding: 1.25rem 1.375rem;
   display: grid;
   gap: 1rem;
-  margin: 0.6250rem;
+  margin: 0.625rem;
 }
 
 .mentor-header {
@@ -82,8 +82,8 @@ const handleToggle = () => {
 }
 
 .mentor-header h3 {
-  white-space: nowrap;   
-  overflow: hidden;       
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
   font-size: 1.1rem;
@@ -91,10 +91,10 @@ const handleToggle = () => {
 }
 
 .mentor-header p {
-  white-space: nowrap;    
-  overflow: hidden;       
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0.3750rem 0 0;
+  margin: 0.375rem 0 0;
   color: #7f86a8;
   font-weight: 500;
 }
@@ -109,7 +109,7 @@ const handleToggle = () => {
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 0.5000rem;
+  gap: 0.5rem;
   font-weight: 600;
 }
 
@@ -135,7 +135,7 @@ const handleToggle = () => {
 
 @media (max-width: 600px) {
   .mentor-card {
-    margin: 0.3750rem 0;
+    margin: 0.375rem 0;
   }
 
   .mentor-header {

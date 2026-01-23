@@ -31,7 +31,7 @@ const {
         :value="filteredTasks"
         :num-visible="3"
         :num-scroll="1"
-        circular 
+        circular
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
@@ -64,7 +64,7 @@ const {
         :value="filteredTasks"
         :num-visible="3"
         :num-scroll="1"
-        circular 
+        circular
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
@@ -96,9 +96,9 @@ const {
 }
 
 .task-page {
-  padding: 1.1250rem 1.3750rem 2rem;
+  padding: 1.125rem 1.375rem 2rem;
   overflow: auto;
-  gap: 1.6250rem;
+  gap: 1.625rem;
 }
 
 .task-section {
@@ -120,7 +120,7 @@ const {
 .section-controls {
   display: flex;
   align-items: center;
-  gap: 0.6250rem;
+  gap: 0.625rem;
   color: var(--text-strong);
 }
 
@@ -131,15 +131,15 @@ const {
 }
 
 .task-carousel {
-  padding-bottom: 0.3750rem;
+  padding-bottom: 0.375rem;
 }
 
 .task-carousel :deep(.p-carousel-content) {
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .task-carousel :deep(.p-carousel-item) {
-  padding: 0.3750rem 0.2500rem 0.8750rem;
+  padding: 0.375rem 0.25rem 0.875rem;
 }
 
 @media (max-width: 1050px) {
@@ -148,7 +148,7 @@ const {
   }
 
   .task-page {
-    padding: 0.5000rem 1.1250rem 1.7500rem;
+    padding: 0.5rem 1.125rem 1.75rem;
   }
 }
 </style>

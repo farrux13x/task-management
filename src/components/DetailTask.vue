@@ -140,10 +140,10 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
   bottom: 16px;
   background: #ffffff;
   border-radius: 14px;
-  padding: 0.6250rem 0.8750rem;
+  padding: 0.625rem 0.875rem;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
-  gap: 0.8750rem;
+  gap: 0.875rem;
   align-items: center;
   box-shadow: 0 12px 24px rgba(18, 22, 40, 0.18);
 }
@@ -186,7 +186,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 .media-actions {
   display: flex;
   align-items: center;
-  gap: 0.6250rem;
+  gap: 0.625rem;
   color: #1f2435;
 }
 
@@ -196,7 +196,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 }
 
 .content {
-  padding: 1.5000rem 1.3750rem 1.7500rem;
+  padding: 1.5rem 1.375rem 1.75rem;
   display: grid;
   gap: 1rem;
 }
@@ -234,7 +234,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 
 .stats-row {
   display: flex;
-  gap: 1.5000rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   color: #1f2435;
   font-weight: 600;
@@ -243,7 +243,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 0.6250rem;
+  gap: 0.625rem;
 }
 
 .stat-item :deep(svg) {
@@ -254,7 +254,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 
 .detail-block {
   display: grid;
-  gap: 0.6250rem;
+  gap: 0.625rem;
 }
 
 .detail-block h3 {
@@ -274,13 +274,13 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.8750rem;
+  gap: 0.875rem;
 }
 
 .checklist li {
   display: flex;
   align-items: center;
-  gap: 0.7500rem;
+  gap: 0.75rem;
   color: #1f2435;
   font-weight: 600;
 }
@@ -306,7 +306,7 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
   }
 
   .content {
-    padding: 1.3750rem 1.2500rem 1.6250rem;
+    padding: 1.375rem 1.25rem 1.625rem;
   }
 }
 </style>

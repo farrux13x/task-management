@@ -34,7 +34,7 @@ defineProps<{
   cursor: pointer;
   display: flex;
   gap: 1rem;
-  padding: 1rem 1.1250rem;
+  padding: 1rem 1.125rem;
   background: #ffffff;
   box-shadow: 0 16px 28px rgba(18, 20, 34, 0.06);
 }
@@ -49,7 +49,7 @@ defineProps<{
 .content {
   flex: 1;
   display: grid;
-  gap: 0.3750rem;
+  gap: 0.375rem;
 }
 
 .top-row {
@@ -75,7 +75,7 @@ defineProps<{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.7500rem;
+  gap: 0.75rem;
 }
 
 .bottom-row p {

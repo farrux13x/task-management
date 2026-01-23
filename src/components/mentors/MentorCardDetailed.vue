@@ -62,9 +62,9 @@ const handleToggle = () => {
 .mentor-card {
   background: #ffffff;
   border-radius: 24px;
-  padding: 1.2500rem 1.3750rem 1.3750rem;
+  padding: 1.25rem 1.375rem 1.375rem;
   display: grid;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .mentor-header {
@@ -89,7 +89,7 @@ const handleToggle = () => {
 }
 
 .mentor-header p {
-  margin: 0.3750rem 0 0;
+  margin: 0.375rem 0 0;
   color: #7f86a8;
   font-weight: 500;
 }
@@ -111,7 +111,7 @@ const handleToggle = () => {
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 0.5000rem;
+  gap: 0.5rem;
   font-weight: 600;
 }
 
@@ -137,7 +137,7 @@ const handleToggle = () => {
 
 @media (max-width: 600px) {
   .mentor-card {
-    padding: 1.1250rem 1.1250rem 1.2500rem;
+    padding: 1.125rem 1.125rem 1.25rem;
   }
 
   .mentor-header {

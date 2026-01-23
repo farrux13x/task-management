@@ -57,7 +57,7 @@ const firstTask = computed(() => tasksStore.tasks[0] ?? null)
   .app {
     flex-direction: column;
     overflow-y: auto;
-    padding-bottom: 5.5000rem;
+    padding-bottom: 5.5rem;
   }
 
   .content {
@@ -67,8 +67,8 @@ const firstTask = computed(() => tasksStore.tasks[0] ?? null)
   }
 
   .overview-panel {
-    padding: 0 1.1250rem 1.5000rem;
-    gap: 1.2500rem;
+    padding: 0 1.125rem 1.5rem;
+    gap: 1.25rem;
     overflow: visible;
   }
 }

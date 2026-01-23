@@ -100,10 +100,10 @@ const goPrevWeek = () => {
   width: 100%;
   background: #ffffff;
   border-radius: 26px;
-  padding: 1.2500rem;
+  padding: 1.25rem;
   box-shadow: 0 18px 36px rgba(17, 20, 38, 0.08);
   display: grid;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .calendar-header {
@@ -137,7 +137,7 @@ const goPrevWeek = () => {
 
 .calendar-grid {
   display: grid;
-  gap: 0.7500rem;
+  gap: 0.75rem;
 }
 
 .week-row {
@@ -145,13 +145,13 @@ const goPrevWeek = () => {
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
   color: #5b5f7d;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 .week-row span {
   font-weight: 600;
   font-size: 12px;
 }
-.week-row .active{
+.week-row .active {
   z-index: 3;
   color: white;
 }
@@ -160,7 +160,7 @@ const goPrevWeek = () => {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .date-item {
@@ -207,5 +207,4 @@ const goPrevWeek = () => {
   color: #ffffff;
   z-index: 2;
 }
-
 </style>

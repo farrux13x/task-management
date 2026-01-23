@@ -2,7 +2,12 @@
   <div class="card">
     <div class="d-flex-between">
       <div class="fs-16 fw-600">Activity</div>
-      <Select v-model="selectedCity" :options="cities" optionLabel="name" @change="changeSelected"/>
+      <Select
+        v-model="selectedCity"
+        :options="cities"
+        optionLabel="name"
+        @change="changeSelected"
+      />
     </div>
     <Chart type="line" :data="chartData" :options="chartOptions" />
   </div>
@@ -10,14 +15,14 @@
 
 <script setup>
 import Chart from 'primevue/chart'
-import Select from 'primevue/select';
+import Select from 'primevue/select'
 import { ref, onMounted, watch } from 'vue'
 
-const selectedCity = ref({ name: 'This week', code: 'this' });
+const selectedCity = ref({ name: 'This week', code: 'this' })
 const cities = ref([
-    { name: 'This week', code: 'this' },
-    { name: 'Last week', code: 'last' },
-]);
+  { name: 'This week', code: 'this' },
+  { name: 'Last week', code: 'last' },
+])
 
 const chartData = ref()
 const chartOptions = ref()
@@ -25,7 +30,7 @@ const chartOptions = ref()
 const setChartData = () => {
   const isLastWeek = selectedCity.value?.code === 'last'
   const dataPoints = isLastWeek
-    ? [2, 2.2, 1.4, 2.2, 2  , 1.2, 2.2]
+    ? [2, 2.2, 1.4, 2.2, 2, 1.2, 2.2]
     : [1, 2, 1.4, 2.5, 1.2, 2, 2.1]
   const documentStyle = getComputedStyle(document.documentElement)
 
@@ -95,9 +100,9 @@ const setChartOptions = () => {
 </script>
 
 <style scoped>
-  .card{
-    border-radius: 10px;
-    padding: 1.2500rem;
-    background-color: #F5F5F7;
-  }
+.card {
+  border-radius: 10px;
+  padding: 1.25rem;
+  background-color: #f5f5f7;
+}
 </style>

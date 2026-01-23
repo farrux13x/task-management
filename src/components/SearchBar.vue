@@ -30,7 +30,7 @@ const emit = defineEmits<{
   margin: 0 10px;
   align-items: center;
   background: #ffffff;
-  padding: 0.7500rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 18px;
   border: 1px solid #eef0f6;
 }
@@ -39,7 +39,7 @@ const emit = defineEmits<{
   width: 100%;
   border: none;
   box-shadow: none;
-  padding-right: 2.6250rem;
+  padding-right: 2.625rem;
   font-size: 1rem;
 }
 

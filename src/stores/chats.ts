@@ -321,6 +321,6 @@ export const useChatsStore = defineStore('chats', {
         }
       })
       localStorage.setItem(storageKey, JSON.stringify(this.chats))
-    }
-  }
+    },
+  },
 })

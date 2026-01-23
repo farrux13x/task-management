@@ -21,23 +21,23 @@ export function useSettingsPage() {
     {
       name: 'Message',
       toggle: false,
-      id: 1
+      id: 1,
     },
     {
       name: 'Task Update',
       toggle: false,
-      id: 2
+      id: 2,
     },
     {
       name: 'Task Deadline',
       toggle: true,
-      id: 3
+      id: 3,
     },
     {
       name: 'Mentor Help',
       toggle: false,
-      id: 4
-    }
+      id: 4,
+    },
   ])
 
   const toast = useToast()

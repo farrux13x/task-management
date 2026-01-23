@@ -67,8 +67,8 @@ const taskCategory = computed(
 .assigned-assignments {
   width: 100%;
   background: #ffffff;
-  padding: 1.3750rem;
-  gap: 1.3750rem;
+  padding: 1.375rem;
+  gap: 1.375rem;
   border-radius: 24px;
   box-shadow: 0 18px 32px rgba(15, 18, 32, 0.06);
   display: grid;
@@ -76,7 +76,7 @@ const taskCategory = computed(
 
 .assignment-header {
   display: grid;
-  gap: 0.6250rem;
+  gap: 0.625rem;
 }
 
 .eyebrow {
@@ -100,7 +100,7 @@ const taskCategory = computed(
 
 .detail-section {
   display: grid;
-  gap: 0.8750rem;
+  gap: 0.875rem;
 }
 
 .detail-section h4 {
@@ -118,7 +118,7 @@ const taskCategory = computed(
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   color: #5b5f7d;
   font-size: 1rem;
 }
@@ -137,7 +137,7 @@ const taskCategory = computed(
 .drop-area {
   border: 2px dashed rgba(94, 110, 248, 0.6);
   border-radius: 20px;
-  padding: 2.2500rem;
+  padding: 2.25rem;
   display: grid;
   place-items: center;
   min-height: 160px;
@@ -168,13 +168,13 @@ const taskCategory = computed(
 .submit-btn {
   width: 100%;
   border-radius: 18px;
-  padding: 0.8750rem 0;
+  padding: 0.875rem 0;
   font-size: 1rem;
 }
 
 @media (max-width: 1050px) {
   .assigned-assignments {
-    padding: 1.2500rem;
+    padding: 1.25rem;
   }
 
   .assignment-header h3 {

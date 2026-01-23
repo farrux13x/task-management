@@ -97,7 +97,7 @@ const handleNavigate = (routeName: string) => {
 .sidebar {
   width: 260px;
   background: var(--sidebar-bg);
-  padding: 1.7500rem 1.2500rem 1.5000rem;
+  padding: 1.75rem 1.25rem 1.5rem;
   box-shadow: 0 24px 40px rgba(20, 24, 44, 0.08);
   display: flex;
   flex-direction: column;
@@ -107,15 +107,15 @@ const handleNavigate = (routeName: string) => {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.7500rem;
-  padding: 0.2500rem 0.3750rem 1.1250rem;
+  gap: 0.75rem;
+  padding: 0.25rem 0.375rem 1.125rem;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 0.7500rem;
-  padding: 0.7500rem 0.2500rem;
+  gap: 0.75rem;
+  padding: 0.75rem 0.25rem;
 }
 
 .help-card {
@@ -129,7 +129,7 @@ const handleNavigate = (routeName: string) => {
     var(--card-bg);
   color: #eef0ff;
   border-radius: 18px;
-  padding: 2rem 1.1250rem 1.1250rem;
+  padding: 2rem 1.125rem 1.125rem;
   position: relative;
 }
 
@@ -152,7 +152,7 @@ const handleNavigate = (routeName: string) => {
 
 .help-body h3 {
   text-align: center;
-  margin: 0.3750rem 0 0.5000rem;
+  margin: 0.375rem 0 0.5rem;
   font-size: 1.05rem;
 }
 
@@ -167,7 +167,7 @@ const handleNavigate = (routeName: string) => {
   border-color: white;
   box-shadow: none;
   justify-content: start;
-  padding: 0.6250rem 1.2500rem;
+  padding: 0.625rem 1.25rem;
 }
 @media (max-width: 1050px) {
   .sidebar {
@@ -177,7 +177,7 @@ const handleNavigate = (routeName: string) => {
     bottom: 0;
     width: 100%;
     height: 72px;
-    padding: 0.6250rem 1rem;
+    padding: 0.625rem 1rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -195,7 +195,7 @@ const handleNavigate = (routeName: string) => {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5000rem;
+    gap: 0.5rem;
     padding: 0;
     width: 100%;
   }
@@ -203,7 +203,7 @@ const handleNavigate = (routeName: string) => {
   .menu-button {
     flex: 1;
     justify-content: center;
-    padding: 0.6250rem 0.5000rem;
+    padding: 0.625rem 0.5rem;
     border-radius: 16px;
   }
 

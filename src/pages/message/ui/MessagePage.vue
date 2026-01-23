@@ -51,7 +51,7 @@ const isChatView = computed(() => route.name === 'chat')
 
 .chat-list {
   overflow: auto;
-  gap: 0.3750rem;
+  gap: 0.375rem;
   flex: 1;
 }
 
@@ -68,7 +68,7 @@ const isChatView = computed(() => route.name === 'chat')
   }
 
   .message-list {
-    padding: 0.5000rem 1.1250rem 1.5000rem;
+    padding: 0.5rem 1.125rem 1.5rem;
     gap: 1rem;
   }
 

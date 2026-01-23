@@ -61,8 +61,8 @@ const submitMessage = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.7500rem;
-  padding: 1rem 1.1250rem;
+  gap: 0.75rem;
+  padding: 1rem 1.125rem;
   background: #ffffff;
   box-shadow: 0 16px 28px rgba(18, 20, 34, 0.06);
 }

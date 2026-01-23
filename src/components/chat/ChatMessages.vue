@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Message} from '@/stores/chats.ts'
+import { Message } from '@/stores/chats.ts'
 
 defineProps<{
   messages: Message[]
@@ -33,9 +33,9 @@ defineProps<{
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   height: 100%;
-  padding: 0.6250rem 0.3750rem 0.3750rem;
+  padding: 0.625rem 0.375rem 0.375rem;
 }
 
 .message-row {
@@ -44,7 +44,7 @@ defineProps<{
 }
 
 .day-badge {
-  padding: 0.3750rem 0.8750rem;
+  padding: 0.375rem 0.875rem;
   border-radius: 12px;
   background: #151828;
   color: #ffffff;
@@ -54,8 +54,8 @@ defineProps<{
 .bubble {
   max-width: 420px;
   display: grid;
-  gap: 0.5000rem;
-  padding: 0.7500rem 0.8750rem;
+  gap: 0.5rem;
+  padding: 0.75rem 0.875rem;
   border-radius: 14px;
   position: relative;
 }

@@ -105,7 +105,11 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
         </li>
       </ol>
 
-      <button class="detail-btn" type="button" @click="openTask(props.task?.id)">
+      <button
+        class="detail-btn"
+        type="button"
+        @click="openTask(props.task?.id)"
+      >
         Go To Detail
       </button>
     </div>
@@ -117,9 +121,9 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
   width: 100%;
   background: #ffffff;
   border-radius: 26px;
-  padding: 1.2500rem;
+  padding: 1.25rem;
   display: grid;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   box-shadow: 0 18px 36px rgba(17, 20, 38, 0.08);
 }
 
@@ -174,7 +178,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
 }
 
 .title-block p {
-  margin: 0.3750rem 0 0;
+  margin: 0.375rem 0 0;
   color: #5b5f7d;
   font-weight: 600;
 }
@@ -229,7 +233,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
 .time-badge {
   display: flex;
   align-items: center;
-  gap: 0.7500rem;
+  gap: 0.75rem;
   font-weight: 600;
   color: #1c2031;
 }
@@ -244,7 +248,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
   height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -0.6250rem;
+  margin-left: -0.625rem;
   box-shadow: 0 8px 14px rgba(18, 22, 40, 0.14);
 }
 
@@ -255,7 +259,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
 .section-divider {
   height: 1px;
   background: rgba(187, 190, 210, 0.4);
-  margin: 0.2500rem 0;
+  margin: 0.25rem 0;
 }
 
 .detail-header {
@@ -280,13 +284,13 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.7500rem;
+  gap: 0.75rem;
 }
 
 .detail-list li {
   display: flex;
   align-items: center;
-  gap: 0.7500rem;
+  gap: 0.75rem;
   font-weight: 600;
   color: #1c2031;
 }
@@ -311,7 +315,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
   background: #5f6df8;
   color: #ffffff;
   font-weight: 600;
-  padding: 0.8750rem 1.1250rem;
+  padding: 0.875rem 1.125rem;
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 14px 22px rgba(95, 109, 248, 0.35);
@@ -319,7 +323,7 @@ const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
 
 @media (max-width: 700px) {
   .detail-task-card {
-    padding: 1.1250rem;
+    padding: 1.125rem;
   }
 
   .hero-image {

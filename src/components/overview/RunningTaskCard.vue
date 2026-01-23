@@ -5,7 +5,13 @@
       <div class="running-total">65</div>
     </div>
     <div class="running-metrics">
-      <Chart type="doughnut" :data="chartData" :options="chartOptions" width="200" height="200"/>
+      <Chart
+        type="doughnut"
+        :data="chartData"
+        :options="chartOptions"
+        width="200"
+        height="200"
+      />
       <div class="progress-meta">
         <div class="meta-value">100</div>
         <div class="meta-label">Task</div>
@@ -14,61 +20,59 @@
   </section>
 </template>
 
-
 <script setup>
-  
-import Chart from 'primevue/chart';
+import Chart from 'primevue/chart'
 
-  import { ref, onMounted } from "vue";
-  
-  onMounted(() => {
-      chartData.value = setChartData();
-      chartOptions.value = setChartOptions();
-  });
-  
-  const chartData = ref();
-  const chartOptions = ref(null);
-  
-  const setChartData = () => {
-      const documentStyle = getComputedStyle(document.body);
-  
-      return {
-          labels: [ 'Running', 'Not running'],
-          datasets: [
-              {
-                  data: [65, 35],
-                  backgroundColor: ['#546FFF', '#141522'],
-                  hoverBackgroundColor: ['#546FFF', '#141522']
-              }
-          ]
-      };
-  };
-  
-  const setChartOptions = () => {
-      const documentStyle = getComputedStyle(document.documentElement);
-      const textColor = 'white'
-  
-      return {
-          plugins: {
-              legend: {
-                  labels: {
-                      cutout: '60%',
-                      color: textColor
-                  }
-              }
-          }
-      };
-  };
-  </script>
+import { ref, onMounted } from 'vue'
+
+onMounted(() => {
+  chartData.value = setChartData()
+  chartOptions.value = setChartOptions()
+})
+
+const chartData = ref()
+const chartOptions = ref(null)
+
+const setChartData = () => {
+  const documentStyle = getComputedStyle(document.body)
+
+  return {
+    labels: ['Running', 'Not running'],
+    datasets: [
+      {
+        data: [65, 35],
+        backgroundColor: ['#546FFF', '#141522'],
+        hoverBackgroundColor: ['#546FFF', '#141522'],
+      },
+    ],
+  }
+}
+
+const setChartOptions = () => {
+  const documentStyle = getComputedStyle(document.documentElement)
+  const textColor = 'white'
+
+  return {
+    plugins: {
+      legend: {
+        labels: {
+          cutout: '60%',
+          color: textColor,
+        },
+      },
+    },
+  }
+}
+</script>
 
 <style scoped>
 .running-card {
   position: relative;
   background: #181a28;
   border-radius: 24px;
-  padding: 1.2500rem 1.3750rem 1.5000rem;
+  padding: 1.25rem 1.375rem 1.5rem;
   color: #ffffff;
-  gap: 1.1250rem;
+  gap: 1.125rem;
   box-shadow: 0 18px 32px rgba(12, 14, 30, 0.32);
 }
 
@@ -86,7 +90,7 @@ import Chart from 'primevue/chart';
 .running-metrics {
   display: flex;
   align-items: center;
-  gap: 1.2500rem;
+  gap: 1.25rem;
 }
 
 .progress-ring {
@@ -114,7 +118,7 @@ import Chart from 'primevue/chart';
 
 .progress-meta {
   display: grid;
-  gap: 0.2500rem;
+  gap: 0.25rem;
 }
 
 .meta-value {
@@ -127,7 +131,7 @@ import Chart from 'primevue/chart';
 }
 
 @media (max-width: 1450px) {
-  .running-card{
+  .running-card {
     display: flex;
     justify-content: space-between;
   }

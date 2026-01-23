@@ -92,9 +92,9 @@ const props = defineProps<{
 }
 
 .task-body {
-  padding: 1.1250rem 1.2500rem 1.2500rem;
+  padding: 1.125rem 1.25rem 1.25rem;
   display: grid;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .task-heading h3 {
@@ -104,7 +104,7 @@ const props = defineProps<{
 }
 
 .task-heading p {
-  margin: 0.3750rem 0 0;
+  margin: 0.375rem 0 0;
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -164,7 +164,7 @@ const props = defineProps<{
 .deadline {
   display: flex;
   align-items: center;
-  gap: 0.7500rem;
+  gap: 0.75rem;
   font-weight: 600;
   color: var(--text-strong);
 }
@@ -179,7 +179,7 @@ const props = defineProps<{
   height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -0.6250rem;
+  margin-left: -0.625rem;
   box-shadow: 0 8px 14px rgba(18, 22, 40, 0.14);
 }
 
@@ -200,7 +200,7 @@ const props = defineProps<{
 
 @media (max-width: 600px) {
   .task-body {
-    padding: 1.1250rem 1.1250rem 1.3750rem;
+    padding: 1.125rem 1.125rem 1.375rem;
   }
 
   .task-footer {

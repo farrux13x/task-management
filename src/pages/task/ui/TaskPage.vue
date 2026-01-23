@@ -31,12 +31,12 @@ const selectedTask = computed(() => {
   overflow: auto;
   padding: 2rem;
   display: grid;
-  gap: 1.5000rem;
+  gap: 1.5rem;
 }
 
 .task-header {
   display: none;
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 .message-title {
@@ -54,7 +54,7 @@ const selectedTask = computed(() => {
 
 @media (max-width: 1050px) {
   .task-page {
-    padding: 0.5000rem 1.1250rem 1.7500rem;
+    padding: 0.5rem 1.125rem 1.75rem;
   }
 
   .task-header {

@@ -20,8 +20,6 @@ const {
   openTask,
 } = useTasksPage()
 
-
-
 const { mentorsCompact, mentorsRef } = useMentorsPage()
 const mentorsStore = useMentorsStore()
 
@@ -33,8 +31,8 @@ const toggleFollow = (mentorId: number) => {
 <template>
   <section class="overview-page">
     <div class="overview-top">
-      <RunningTaskCard class="running-card"/>
-      <ActivityChart class="chart-card"/>
+      <RunningTaskCard class="running-card" />
+      <ActivityChart class="chart-card" />
     </div>
 
     <Carousel
@@ -42,15 +40,17 @@ const toggleFollow = (mentorId: number) => {
       :value="mentorsCompact"
       :num-visible="2"
       :num-scroll="1"
-      circular 
+      circular
       :show-navigators="false"
       :responsive-options="responsiveOptions"
       :show-indicators="false"
     >
       <template #item="{ data }">
-        <MentorCardCompact :key="`${data.name}-${data.tasks}`" 
-          :mentor="data" 
-          @toggle-follow="toggleFollow"/>
+        <MentorCardCompact
+          :key="`${data.name}-${data.tasks}`"
+          :mentor="data"
+          @toggle-follow="toggleFollow"
+        />
       </template>
 
       <template #header>
@@ -71,7 +71,7 @@ const toggleFollow = (mentorId: number) => {
         :value="filteredTasks"
         :num-visible="2"
         :num-scroll="1"
-        circular 
+        circular
         :show-navigators="false"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
@@ -101,22 +101,22 @@ const toggleFollow = (mentorId: number) => {
 <style scoped>
 .overview-page {
   overflow: auto;
-  padding: 1.1250rem 1.3750rem 2rem;
-  gap: 1.6250rem;
+  padding: 1.125rem 1.375rem 2rem;
+  gap: 1.625rem;
 }
 
 .task-carousel :deep(.p-carousel-item) {
-  padding: 0.3750rem 0.2500rem 0.8750rem;
+  padding: 0.375rem 0.25rem 0.875rem;
 }
-.overview-top{
+.overview-top {
   display: flex;
   align-items: center;
-  gap: 1.2500rem;
+  gap: 1.25rem;
 }
-.chart-card{
+.chart-card {
   width: 70%;
 }
-.running-card{
+.running-card {
   width: 30%;
 }
 .section {
@@ -128,18 +128,18 @@ const toggleFollow = (mentorId: number) => {
   .overview-top {
     flex-flow: wrap;
   }
-  .chart-card{
+  .chart-card {
     width: 100%;
   }
-  .running-card{
+  .running-card {
     width: 100%;
   }
 }
 
 @media (max-width: 1050px) {
   .overview-page {
-    padding: 1rem 1.1250rem 0;
-    gap: 1.2500rem;
+    padding: 1rem 1.125rem 0;
+    gap: 1.25rem;
   }
 }
 </style>

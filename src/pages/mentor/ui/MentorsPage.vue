@@ -28,7 +28,7 @@ const {
       :value="mentorsCompact"
       :num-visible="3"
       :num-scroll="1"
-      circular 
+      circular
       :show-navigators="false"
       :responsive-options="responsiveOptions"
       :show-indicators="false"
@@ -66,8 +66,8 @@ const {
 
 <style scoped>
 .mentors-page {
-  padding: 1.1250rem 1.3750rem 2rem;
-  gap: 1.3750rem;
+  padding: 1.125rem 1.375rem 2rem;
+  gap: 1.375rem;
   overflow: auto;
 }
 
@@ -87,12 +87,12 @@ const {
 .mentor-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.1250rem;
+  gap: 1.125rem;
 }
 
 @media (max-width: 1050px) {
   .mentors-page {
-    padding: 1.1250rem;
+    padding: 1.125rem;
   }
 
   .page-title {

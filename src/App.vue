@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import SideMenu from './components/SideMenu.vue'
 import TopHeader from './components/TopHeader.vue'
 import Calendar from '@components/overview/Calendar.vue'
 import TaskToday from '@components/overview/TaskToday.vue'
+import { useTasksStore } from '@/stores/tasks'
 
 import { RouterView } from 'vue-router'
 
 const route = useRoute()
+const tasksStore = useTasksStore()
+const firstTask = computed(() => tasksStore.tasks[0] ?? null)
 </script>
 
 <template>
@@ -21,7 +25,7 @@ const route = useRoute()
 
     <aside v-if="route.name == 'overview'" class="overview-panel">
       <Calendar />
-      <TaskToday />
+      <TaskToday :task="firstTask" />
     </aside>
   </div>
 </template>

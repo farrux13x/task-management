@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { useTasksStore, TaskItem } from '@/stores/tasks'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import type { TaskItem } from '@/stores/tasks'
 
 import ClockIcon from '@/components/icons/ClockIcon.vue'
 import MoreCircleIcon from '@/components/icons/MoreCircleIcon.vue'
 
-const tasksStore = useTasksStore()
-const route = useRoute()
-const task = ref<TaskItem | null>(null)
+const router = useRouter()
+
+const props = defineProps<{
+  task: TaskItem | null
+}>()
 
 const detailSteps = [
   'Understanding the tools in Figma',
@@ -24,18 +26,18 @@ const teamMembers = [
   { name: 'Lee', image: 'https://i.pravatar.cc/100?img=64' },
 ]
 
+const openTask = (id: number | undefined) => {
+  router.push({ name: 'task', params: { id: id } })
+}
+
 const heroImage = computed(
   () =>
-    task.value?.image ||
+    props.task?.image ||
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
 )
 
-const progressValue = computed(() => task.value?.progress ?? 90)
-const categoryLabel = computed(() => task.value?.category || 'UI/UX Designer')
-
-onMounted(() => {
-  task.value = tasksStore.tasks.find((i) => i.id === Number(route.params?.id)) || null
-})
+const progressValue = computed(() => props.task?.progress ?? 90)
+const categoryLabel = computed(() => props.task?.category || 'UI/UX Designer')
 </script>
 
 <template>
@@ -48,12 +50,12 @@ onMounted(() => {
     </header>
 
     <div class="hero-image">
-      <img :src="heroImage" :alt="task?.title || 'Task preview'" />
+      <img :src="heroImage" :alt="props.task?.title || 'Task preview'" />
     </div>
 
     <div class="detail-body">
       <div class="title-block">
-        <h2>{{ task?.title || 'Creating Awesome Mobile Apps' }}</h2>
+        <h2>{{ props.task?.title || 'Creating Awesome Mobile Apps' }}</h2>
         <p>{{ categoryLabel }}</p>
       </div>
 
@@ -76,7 +78,7 @@ onMounted(() => {
       <div class="detail-meta">
         <div class="time-badge">
           <ClockIcon />
-          <span>{{ task?.duration || '1 Hour' }}</span>
+          <span>{{ props.task?.duration || '1 Hour' }}</span>
         </div>
 
         <div class="avatars" aria-label="Assigned team members">
@@ -103,7 +105,9 @@ onMounted(() => {
         </li>
       </ol>
 
-      <button class="detail-btn" type="button">Go To Detail</button>
+      <button class="detail-btn" type="button" @click="openTask(props.task?.id)">
+        Go To Detail
+      </button>
     </div>
   </article>
 </template>

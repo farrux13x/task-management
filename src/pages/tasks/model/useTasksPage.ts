@@ -50,6 +50,7 @@ export function useTasksPage() {
     if (!term) {
       return tasksStore.tasks
     }
+    console.log(term)
     return tasksStore.tasks.filter((task) =>
       task.title.toLowerCase().includes(term),
     )

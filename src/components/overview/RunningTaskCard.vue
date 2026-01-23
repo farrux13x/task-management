@@ -5,9 +5,7 @@
       <div class="running-total">65</div>
     </div>
     <div class="running-metrics">
-      <div class="progress-ring" style="--value: 45%">
-        <div class="progress-value">45%</div>
-      </div>
+      <Chart type="doughnut" :data="chartData" :options="chartOptions" width="200" height="200"/>
       <div class="progress-meta">
         <div class="meta-value">100</div>
         <div class="meta-label">Task</div>
@@ -15,6 +13,53 @@
     </div>
   </section>
 </template>
+
+
+<script setup>
+  
+import Chart from 'primevue/chart';
+
+  import { ref, onMounted } from "vue";
+  
+  onMounted(() => {
+      chartData.value = setChartData();
+      chartOptions.value = setChartOptions();
+  });
+  
+  const chartData = ref();
+  const chartOptions = ref(null);
+  
+  const setChartData = () => {
+      const documentStyle = getComputedStyle(document.body);
+  
+      return {
+          labels: [ 'Running', 'Not running'],
+          datasets: [
+              {
+                  data: [65, 35],
+                  backgroundColor: ['#546FFF', '#141522'],
+                  hoverBackgroundColor: ['#546FFF', '#141522']
+              }
+          ]
+      };
+  };
+  
+  const setChartOptions = () => {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = 'white'
+  
+      return {
+          plugins: {
+              legend: {
+                  labels: {
+                      cutout: '60%',
+                      color: textColor
+                  }
+              }
+          }
+      };
+  };
+  </script>
 
 <style scoped>
 .running-card {

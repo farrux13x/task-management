@@ -301,11 +301,6 @@ const taskDuration = computed(() => props.task?.duration || '1 Hour')
 }
 
 @media (max-width: 1050px) {
-  .media-bar {
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto;
-  }
-
   .media-actions {
     justify-content: flex-end;
   }

@@ -15,7 +15,6 @@ export function useMentorsPage() {
     if (!term) {
       return mentorsStore.mentors
     }
-    console.log(term)
     return mentorsStore.mentors.filter((mentor) =>
       mentor.name.toLowerCase().includes(term),
     )
@@ -38,6 +37,10 @@ export function useMentorsPage() {
   ]
 
   const mentorsRef = ref<CarouselInstance | null>(null)
+
+  const toggleFollow = (mentorId: number) => {
+    mentorsStore.toggleFollow(mentorId)
+  }
 
   const triggerNext = (target: CarouselInstance | null, event?: Event) => {
     if (!event) {
@@ -63,5 +66,6 @@ export function useMentorsPage() {
     mentorsRef,
     triggerNext,
     triggerPrev,
+    toggleFollow,
   }
 }

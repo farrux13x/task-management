@@ -8,6 +8,7 @@ import MentorCardCompact from '@components/mentors/MentorCardCompact.vue'
 import TaskCard from '@components/TaskCard.vue'
 import { useTasksPage } from '@pages/tasks'
 import { useMentorsPage } from '@pages/mentor'
+import { useMentorsStore } from '@/stores/mentors'
 
 const {
   filteredTasks,
@@ -19,12 +20,19 @@ const {
   openTask,
 } = useTasksPage()
 
+
+
 const { mentorsCompact, mentorsRef } = useMentorsPage()
+const mentorsStore = useMentorsStore()
+
+const toggleFollow = (mentorId: number) => {
+  mentorsStore.toggleFollow(mentorId)
+}
 </script>
 
 <template>
   <section class="overview-page">
-    <div class="one">
+    <div class="overview-top">
       <RunningTaskCard class="running-card"/>
       <ActivityChart class="chart-card"/>
     </div>
@@ -40,7 +48,9 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
       :show-indicators="false"
     >
       <template #item="{ data }">
-        <MentorCardCompact :key="`${data.name}-${data.tasks}`" :mentor="data" />
+        <MentorCardCompact :key="`${data.name}-${data.tasks}`" 
+          :mentor="data" 
+          @toggle-follow="toggleFollow"/>
       </template>
 
       <template #header>
@@ -98,7 +108,7 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
 .task-carousel :deep(.p-carousel-item) {
   padding: 0.3750rem 0.2500rem 0.8750rem;
 }
-.one{
+.overview-top{
   display: flex;
   align-items: center;
   gap: 1.2500rem;
@@ -115,7 +125,7 @@ const { mentorsCompact, mentorsRef } = useMentorsPage()
 }
 
 @media (max-width: 1450px) {
-  .one {
+  .overview-top {
     flex-flow: wrap;
   }
   .chart-card{

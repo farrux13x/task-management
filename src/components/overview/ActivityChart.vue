@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="d-flex-between">
-      <div>Activity</div>
-      <Select v-model="selectedCity" :options="cities" optionLabel="name"/>
+      <div class="fs-16 fw-600">Activity</div>
+      <Select v-model="selectedCity" :options="cities" optionLabel="name" @change="changeSelected"/>
     </div>
     <Chart type="line" :data="chartData" :options="chartOptions" />
   </div>
@@ -11,7 +11,7 @@
 <script setup>
 import Chart from 'primevue/chart'
 import Select from 'primevue/select';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 const selectedCity = ref({ name: 'This week', code: 'this' });
 const cities = ref([
@@ -19,23 +19,22 @@ const cities = ref([
     { name: 'Last week', code: 'last' },
 ]);
 
-onMounted(() => {
-  chartData.value = setChartData()
-  chartOptions.value = setChartOptions()
-})
-
 const chartData = ref()
 const chartOptions = ref()
 
 const setChartData = () => {
+  const isLastWeek = selectedCity.value?.code === 'last'
+  const dataPoints = isLastWeek
+    ? [2, 2.2, 1.4, 2.2, 2  , 1.2, 2.2]
+    : [1, 2, 1.4, 2.5, 1.2, 2, 2.1]
   const documentStyle = getComputedStyle(document.documentElement)
 
   return {
     labels: ['S', 'M', 'T', 'W', 'S', 'F', 'S'],
     datasets: [
       {
-        label: 'Third Dataset',
-        data: [1, 2, 1.4, 2.5, 1.2, 2, 2.1],
+        label: 'Tasks',
+        data: dataPoints,
         fill: true,
         borderColor: '#141522',
         tension: 0.4,
@@ -44,6 +43,15 @@ const setChartData = () => {
     ],
   }
 }
+onMounted(() => {
+  chartData.value = setChartData()
+  chartOptions.value = setChartOptions()
+})
+
+const changeSelected = () => {
+  chartData.value = setChartData()
+}
+
 const setChartOptions = () => {
   const documentStyle = getComputedStyle(document.documentElement)
   const textColor = documentStyle.getPropertyValue('--p-text-color')

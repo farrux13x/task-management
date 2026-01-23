@@ -177,4 +177,12 @@ export const useMentorsStore = defineStore('mentors', {
   state: () => ({
     mentors: [...mockMentors],
   }),
+  actions: {
+    toggleFollow(mentorId: number) {
+      const mentor = this.mentors.find((item) => item.id === mentorId)
+      if (mentor) {
+        mentor.isFollowed = !mentor.isFollowed
+      }
+    },
+  },
 })

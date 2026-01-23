@@ -2,20 +2,19 @@
 import Button from 'primevue/button'
 import TaskSquareIcon from '../icons/TaskSquareIcon.vue'
 import StarFilledIcon from '../icons/StarFilledIcon.vue'
-
-type Mentor = {
-  name: string
-  role: string
-  tasks: number
-  rating: string
-  reviews: number
-  image: string
-  isFollowed?: boolean
-}
+import type { MentorItem } from '@/stores/mentors'
 
 const props = defineProps<{
-  mentor: Mentor
+  mentor: MentorItem
 }>()
+
+const emit = defineEmits<{
+  (event: 'toggle-follow', mentorId: number): void
+}>()
+
+const handleToggle = () => {
+  emit('toggle-follow', props.mentor.id)
+}
 </script>
 
 <template>
@@ -34,6 +33,7 @@ const props = defineProps<{
         :label="props.mentor.isFollowed ? 'Followed' : '+ Follow'"
         :severity="props.mentor.isFollowed ? 'secondary' : 'primary'"
         text
+        @click="handleToggle"
       />
     </div>
 

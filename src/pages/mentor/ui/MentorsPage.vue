@@ -15,6 +15,7 @@ const {
   mentorsRef,
   triggerNext,
   triggerPrev,
+  toggleFollow,
 } = useMentorsPage()
 </script>
 
@@ -33,7 +34,11 @@ const {
       :show-indicators="false"
     >
       <template #item="{ data }">
-        <MentorCardCompact :key="`${data.name}-${data.tasks}`" :mentor="data" />
+        <MentorCardCompact
+          :key="`${data.name}-${data.tasks}`"
+          :mentor="data"
+          @toggle-follow="toggleFollow"
+        />
       </template>
 
       <template #header>
@@ -53,6 +58,7 @@ const {
         v-for="mentor in mentorsDetailed"
         :key="mentor.name"
         :mentor="mentor"
+        @toggle-follow="toggleFollow"
       />
     </div>
   </section>
